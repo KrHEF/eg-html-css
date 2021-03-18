@@ -1,0 +1,142 @@
+/**
+ * Add the switch button.
+ */
+
+ .switch {
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+
+    & > label {
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        line-height: 2.4rem;
+        margin: 0;
+        padding: 0.2rem 0 0.2rem 6.4rem;
+
+        position: relative;
+
+        &:before {
+            content: '';
+            background-color: getColor('white');
+            border: solid 1px getColor('gray2');
+            border-radius: 1.5rem;
+            display: block;
+            height: 2.8rem;
+            width: 5.2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        &:after {
+            content: '';
+            background-color: getColor('gray2');
+            border-radius: 1.3rem;
+            display: block;
+            height: 2.4rem;
+            width: 2.4rem;
+            transition: left 0.5s ease, right 0.5s ease;
+            position: absolute;
+            top: 0.2rem;
+            left: 0.2rem;
+        }
+
+        .off {
+            display: inline-block;
+        }
+
+        .on {
+            display: none;
+        }
+
+        & + * {
+            margin: 0;
+            padding: 0.2rem 0;
+        }
+    }
+
+     & > input[type="checkbox"] {
+        display: none;
+
+        &:checked {
+
+            & + label {
+
+                &:before {
+                    border: none;
+                    background-color: getColor('blue');
+                }
+
+                &:after {
+                    background-color: getColor('white');
+                    left: 2.6rem;
+                }
+
+                .on {
+                    display: inline-block;
+                }
+        
+                .off {
+                    display: none;
+                }        
+            }
+        }
+
+        &:disabled {
+
+            & + label {
+                cursor: not-allowed;
+                color: getColor('gray2');
+
+                &:before {
+                    background-color: getColor('gray2');
+                    border: nore;
+                }
+
+                &:after {
+                    background-color: getColor('gray3');
+                    opacity: 0.25;
+                }
+            }
+        }
+    }
+
+    &--right {
+        flex-direction: row-reverse;
+        text-align: right;
+
+        & > label {
+            padding-left: 0;
+            padding-right: 6.4rem;
+    
+            &:before {
+                left: auto;
+                right: 0;
+            }
+    
+            &:after {
+                left: auto;
+                right: 2.6rem;
+            }
+        }
+
+        & > input[type="checkbox"] {
+
+            &:checked {
+
+                & + label {
+
+                    &:after {
+                        left: auto;
+                        right: 0.2rem;
+                    }
+                }
+            }
+        }
+    }
+ }

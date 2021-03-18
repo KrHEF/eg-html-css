@@ -1,0 +1,35 @@
+/**
+ * Add the horizontal-menu.
+ */
+
+.horizontal-menu {
+    display: flex;
+    flex-flow: row nowrap;
+
+    &__item {
+
+        & + & {
+            margin-left: 4rem;
+        }    
+    }
+}
+
+.horizontal-menu-item {
+    border-bottom: 0.5rem solid getColor('white');
+    color: getColor('gray3');
+    display: block;
+    height: 3.6rem;
+    transition: border-color 0.2s ease, color 0.5s ease;
+    
+    &--link {
+        color: getColor('gray3');
+        text-decoration: none;
+    }
+
+    &--active,
+    &--link:hover,
+    &:hover {
+        border-bottom: 0.5rem solid getColor('black');
+        color: getColor('black');
+    }
+}

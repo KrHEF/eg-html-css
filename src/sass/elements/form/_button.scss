@@ -1,0 +1,89 @@
+/**
+ * Add the button.
+ */
+
+.btn,
+button.btn,
+a.btn,
+input[type="button"].btn {
+    border: dashed 1px getColor('gray2');
+    border-radius: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.8rem;
+    min-width: 18.2rem;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled),
+    &:hover:not(.disabled) {
+        border-color: getColor('gray3');
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &.disabled {
+
+        &::after {
+            content: '';
+            cursor: not-allowed;
+            background-color: getColor('white');
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            opacity: 0.5;
+        }
+    }
+
+    &--primary {
+        background-color: getColor('blue');
+        border: none;
+        color: getColor('white');
+
+        &:hover:not(:disabled) {
+            background-color: getColor('blue-hover');
+        }
+
+        &.disabled:hover {
+            background-color: getColor('blue');
+        }
+    }
+
+    &--secondary {
+        background-color: getColor('purple');
+        border: none;
+        color: getColor('white');
+
+        &:hover:not(:enabled) {
+            background-color: getColor('purple-hover');
+        }
+
+        &.disabled:hover {
+            background-color: getColor('purple');
+        }
+    }
+
+    &--alternate {
+        background-color: getColor('white');
+        border: solid 1px getColor('gray3'); 
+        color: getColor('gray4');
+
+        &:hover:not(:disabled) {
+            border-color: getColor('black');
+        }
+
+        &.disabled:hover {
+            border-color: getColor('gray3');
+        }
+    }
+}

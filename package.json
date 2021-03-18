@@ -1,0 +1,23 @@
+{
+    "name": "html-education",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "gulp"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-connect": "^5.7.0",
+        "gulp-file-include": "^2.3.0",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-sass": "^4.1.0",
+        "sass": "^1.32.8"
+    },
+    "dependencies": {
+        "scss-reset": "^1.1.11"
+    }
+}

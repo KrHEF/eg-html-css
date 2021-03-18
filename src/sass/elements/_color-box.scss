@@ -1,0 +1,84 @@
+/*
+ * Color box
+ * ========================================================================== */
+/**
+ * Add the color box.
+ */
+@mixin setColor($color) {
+    &::before {
+        background-color: getColor($color);
+    }
+
+    h5::after {
+        content: '' + getColor($color);
+    }
+}
+
+.color-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    gap: 2.4rem;
+
+    &--grayscale {
+        column-gap: 0;
+    }
+}
+
+.color-box {
+    color: getColor('gray3');
+    display: flex;
+    flex-flow: column nowrap;
+
+    &::before {
+        content: '';
+        background-color: getColor('error');
+        display: block;
+        height: 12rem;
+        width: 12rem;   
+
+        .color-boxes--grayscale & {
+            height: 5.4rem;
+        }
+    }
+
+    h5 {
+        margin-top: 1.6rem;
+
+        &::after {
+            content: '' + getColor('error');
+            display: block;
+        }        
+    }
+
+    &--blue {
+        @include setColor('blue');
+    }
+
+    &--purple {
+        @include setColor('purple');
+    }
+
+    &--pink {
+        @include setColor('pink');
+    }
+
+    &--black {
+        @include setColor('black');
+    }
+
+    &--gray4 {
+        @include setColor('gray4');
+    }
+
+    &--gray3 {
+        @include setColor('gray3');
+    }
+
+    &--gray2 {
+        @include setColor('gray2');
+    }
+
+    &--gray1 {
+        @include setColor('gray1');
+    }
+}

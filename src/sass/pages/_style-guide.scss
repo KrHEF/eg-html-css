@@ -1,0 +1,131 @@
+/*
+ * Pages
+ * ========================================================================== */
+/**
+ * Add the style-guide page.
+ */
+
+.style-guide {
+
+    .container {
+        padding: 10rem;
+    }
+}
+
+.style-guide-title {
+    color: getColor('blue');
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+}
+
+.style-guide-block {
+    display: grid;
+    grid-template-columns: 33rem auto;
+    gap: 5rem;
+    padding: 6rem;
+
+    &--title {
+        align-items: center;
+    }
+
+    &__head {
+
+        p {
+            color: getColor('gray3');
+            width: 25.5rem;
+        }
+
+        small {
+            color: getColor('gray3');
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 3.2rem;
+        }
+
+        a {
+            color: getColor('gray3');
+            text-decoration: none;;
+
+            &:hover {
+                text-decoration: underline  ;
+            }
+        }
+    }
+
+    &__section {
+
+        & + & {
+            margin-top: 4rem;
+        }
+    }
+
+    &__line {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+
+        & + & {
+            margin-top: 1.6rem;
+        }
+    }
+
+    &--typography &__line,
+    &--buttons &__line {
+    
+       & > h5 {
+            color: getColor('gray3');
+            flex-basis: 9.5rem;
+        }
+    }
+
+    &__line-element {
+
+        & + & {
+            margin-left: 3.2rem;
+        }
+    }
+
+    &--forms &__body {
+        display: grid;
+        gap: 4rem;
+     
+        h5 {
+            color: getColor('gray3');
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &--forms &__body &__line > h5 {
+        margin-bottom: 0;
+    }
+
+    &--forms &__grid-element {
+        min-width: 25%;
+    }
+
+    &--forms &__grid-element--right &__line {
+        justify-content: flex-end;
+    }
+
+    &__grid {
+        display: flex;
+        flex-flow: row wrap;
+        margin: -1.6rem  0 0 -3.2rem;
+    }
+
+    &__grid-element {
+        margin: 1.6rem 0 0 3.2rem;
+
+        &--right {
+            margin: 1.6rem 3.2rem 0 0;
+        }
+    }
+    &__grid--more {
+        margin-top: -4rem;
+    }
+
+    &__grid--more &__grid-element {
+        margin-top: 4rem;
+    }
+}
