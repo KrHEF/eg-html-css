@@ -14,7 +14,7 @@
 
         & + label {
             cursor: pointer;
-            color: getColor('gray3');
+            opacity: 0.5;
             line-height: 2.4rem;
             margin: 0;
             padding: 0.2rem 0;
@@ -97,7 +97,7 @@
         &.right:checked {
 
             & + label {
-                color: inherit;
+                opacity: 1;
             }
 
             & ~ b {
