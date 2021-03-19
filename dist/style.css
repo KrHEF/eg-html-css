@@ -1130,7 +1130,7 @@ select.dropdown {
       color: #DDE2E5; }
       .switch > input[type="checkbox"]:disabled + label:before {
         background-color: #DDE2E5;
-        border: nore; }
+        border: none; }
       .switch > input[type="checkbox"]:disabled + label:after {
         background-color: #ACB5BD;
         opacity: 0.25; }
@@ -1149,3 +1149,104 @@ select.dropdown {
     .switch--right > input[type="checkbox"]:checked + label:after {
       left: auto;
       right: 0.2rem; }
+
+/**
+ * Add the toggle button.
+ */
+.toggle {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  position: relative; }
+  .toggle > input[type="radio"] {
+    display: none; }
+    .toggle > input[type="radio"] + label {
+      cursor: pointer;
+      color: #ACB5BD;
+      line-height: 2.4rem;
+      margin: 0;
+      padding: 0.2rem 0; }
+    .toggle > input[type="radio"] ~ b {
+      order: 2;
+      display: flex;
+      align-items: flex-start;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      line-height: 2.4rem;
+      margin: 0;
+      width: 5.2rem;
+      margin: 0 -2.6rem;
+      padding: 0;
+      position: relative;
+      pointer-events: none; }
+      .toggle > input[type="radio"] ~ b:before {
+        content: '';
+        background-color: #FFFFFF;
+        border: solid 1px #DDE2E5;
+        border-radius: 1.5rem;
+        display: block;
+        height: 2.8rem;
+        width: 5.2rem;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      .toggle > input[type="radio"] ~ b:after {
+        content: '';
+        background-color: #DDE2E5;
+        border-radius: 1.3rem;
+        display: block;
+        height: 2.4rem;
+        width: 2.4rem;
+        transition: left 0.5s ease, right 0.5s ease;
+        position: absolute;
+        top: 0.2rem;
+        left: calc(50% - 1.2rem); }
+    .toggle > input[type="radio"].left + label {
+      order: 1;
+      padding-right: 4rem; }
+    .toggle > input[type="radio"].left:checked ~ b:after {
+      left: 0.2rem; }
+    .toggle > input[type="radio"].right + label {
+      order: 3;
+      padding-left: 4rem; }
+    .toggle > input[type="radio"].right:checked ~ b:after {
+      left: 2.6rem; }
+    .toggle > input[type="radio"].left:checked + label, .toggle > input[type="radio"].right:checked + label {
+      color: inherit; }
+    .toggle > input[type="radio"].left:checked ~ b:before, .toggle > input[type="radio"].right:checked ~ b:before {
+      background-color: #4263EB;
+      border: none; }
+    .toggle > input[type="radio"].left:checked ~ b:after, .toggle > input[type="radio"].right:checked ~ b:after {
+      background-color: #FFFFFF; }
+    .toggle > input[type="radio"].left:checked ~ .right:checked ~ b:before {
+      background-color: #FFFFFF;
+      border: solid 1px #F03D3E; }
+    .toggle > input[type="radio"].left:checked ~ .right:checked ~ b:after {
+      content: 'error';
+      background: none;
+      color: #F03D3E;
+      left: 0.2rem;
+      right: 0.2rem;
+      text-align: center;
+      width: auto; }
+  .toggle.disabled::after {
+    content: '';
+    cursor: not-allowed;
+    background-color: #FFFFFF;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: 0; }
+  .toggle.disabled > input[type="radio"] + label {
+    color: #DDE2E5 !important; }
+  .toggle.disabled > input[type="radio"] ~ b:before {
+    content: '';
+    background-color: #DDE2E5 !important;
+    border: none !important; }
+  .toggle.disabled > input[type="radio"] ~ b:after {
+    background-color: #ACB5BD !important;
+    opacity: 0.25; }

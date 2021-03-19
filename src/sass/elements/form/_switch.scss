@@ -17,7 +17,6 @@
         line-height: 2.4rem;
         margin: 0;
         padding: 0.2rem 0 0.2rem 6.4rem;
-
         position: relative;
 
         &:before {
@@ -95,7 +94,7 @@
 
                 &:before {
                     background-color: getColor('gray2');
-                    border: nore;
+                    border: none;
                 }
 
                 &:after {
