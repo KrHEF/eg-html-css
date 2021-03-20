@@ -104,10 +104,6 @@
         min-width: 25%;
     }
 
-    &--forms &__grid-element--right &__line {
-        justify-content: flex-end;
-    }
-
     &__grid {
         display: flex;
         flex-flow: row wrap;
@@ -115,17 +111,13 @@
     }
 
     &__grid-element {
-        margin: 1.6rem 0 0 3.2rem;
-
-        &--right {
-            margin: 1.6rem 3.2rem 0 0;
-        }
+        padding: 1.6rem 0 0 3.2rem;
     }
     &__grid--more {
-        margin-top: -4rem;
+        margin: -4rem 0 0 -8rem;
     }
 
     &__grid--more &__grid-element {
-        margin-top: 4rem;
+        padding: 4rem 0 0 8rem;
     }
 }

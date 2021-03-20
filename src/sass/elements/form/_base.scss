@@ -1,0 +1,113 @@
+/*
+ * Base styles for form elements
+ * ========================================================================== */
+
+ /**
+ * Checkbox and radio.
+ */
+
+
+.checkbox,
+.radio {
+    --gap: 1.2rem;
+    --height: 2.8rem;
+    --width: 2.8rem;
+
+    color: getColor('gray4');
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+
+    & > input {
+        display: none;
+
+        & ~ :not(label),
+        & ~ :not(b) {
+            margin: 0;
+            padding: 2px 0;
+            text-align: right;
+        }
+
+        & ~ label {
+            cursor: pointer;
+            display: block;
+            line-height: calc(var(--height) - 4px);
+            min-height: var(--height);
+            min-width: var(--width);
+            margin: 0;
+            padding: 2px calc(var(--width) + var(--gap)) 2px 2px;
+            position: relative;
+
+            & ~ * {
+                text-align: left;
+            }
+
+            &:empty {
+                padding: 0;
+                margin: 0 0 0 var(--gap);
+            }
+        }
+
+        & ~ b + label {
+            padding: 2px 2px 2px calc(var(--width) + var(--gap));
+
+            &:empty {
+                padding: 0;
+                margin: 0 var(--gap) 0 0;
+            }
+        }
+
+        & ~ b {
+            display: block;
+            height: var(--height);
+            width: var(--width);
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+            }
+        }
+
+        & ~ label + b {
+            left: auto;
+            right: 0;
+        }
+
+        &:disabled {
+
+            & ~ label {
+                cursor: not-allowed;
+                color: getColor('gray2');
+            }
+        }
+    }
+
+    &.disabled {
+
+        &::after {
+            content: '';
+            cursor: not-allowed;
+            background-color: getColor('white');
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+        
+        & > input {
+
+            & ~ label {
+                color: getColor('gray2') !important;
+            }
+        }
+    }
+ }

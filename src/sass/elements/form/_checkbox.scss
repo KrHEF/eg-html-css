@@ -2,108 +2,57 @@
  * Add the checkbox.
  */
 
- .checkbox {
-    display: flex;
-    align-items: flex-start;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
+.checkbox {
 
-    & > label {
-        cursor: pointer;
-        display: flex;
-        align-items: flex-start;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        line-height: 2.4rem;
-        margin: 0;
-        padding: 0.2rem 0 0.2rem 4rem;
+    & > input {
 
-        position: relative;
-
-        &:before {
-            content: '';
+        & ~ b {
             background-color: getColor('white');
             border: solid 1px getColor('gray2');
-            border-radius: 0.4rem;
-            display: block;
-            height: 2.8rem;
-            width: 2.8rem;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+            border-radius: 4px;
 
-        &:after {
-            content: '';
-            border-bottom: solid 2px getColor('white');
-            border-right: solid 2px getColor('white');
-            border-radius: 0.5rem 0.2rem;
-            display: block;
-            height: 1.5rem;
-            width: 0.9rem;
-            opacity: 0;
-            transform: rotate(45deg);
-            transition: opacity 0.5s ease;
-            position: absolute;
-            top: 0.6rem;
-            left: 1rem;
+            &::before {
+                border-bottom: solid 3px getColor('white');
+                border-right: solid 3px getColor('white');
+                height: calc(var(--height) / 1.87);
+                width: calc(var(--width) / 3.11);
+                opacity: 0;
+                transform: rotate(45deg);
+                transition: opacity 0.5s ease;
+                left: calc(var(--width) / 2.8);
+                top: calc(var(--height) / 5.6);
+            }
         }
-
-        & + * {
-            margin: 0;
-            padding: 0.2rem 0;
-        }
-    }
-
-     & > input[type="checkbox"] {
-        display: none;
 
         &:checked {
 
-            & + label {
-
-                &:before {
-                    background-color: getColor('blue');
-                    border-color: none;
-                }
-
-                &:after {
+            & ~ b {
+                background-color: getColor('blue');
+                border: none;
+    
+                &::before {
                     opacity: 1;
                 }
             }
         }
 
         &:disabled {
-
-            & + label {
-                cursor: not-allowed;
-                color: getColor('gray2');
-
-                &:before {
-                    background-color: getColor('gray2');
-                    border: none;
-                }
-            }
+            @extend %disabled;
         }
     }
 
-    &--right {
-        flex-direction: row-reverse;
-        text-align: right;
+    &.disabled {
 
-        & > label {
-            padding-left: 0;
-            padding-right: 4rem;
-    
-            &:before {
-                left: auto;
-                right: 0;
-            }
-    
-            &:after {
-                left: auto;
-                right: 0.9rem;
-            }
+        & > input {
+            @extend %disabled;
+        }
+    }
+
+    %disabled {
+
+        & ~ b {
+            background-color: getColor('gray2') !important;
+            border: none !important;
         }
     }
  }
