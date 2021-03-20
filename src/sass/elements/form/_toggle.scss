@@ -2,6 +2,7 @@
  * Add the toggle button.
  */
 
+.toggle-switch,
 .toggle {
     display: flex;
     align-items: flex-start;
@@ -18,9 +19,14 @@
             line-height: 2.4rem;
             margin: 0;
             padding: 0.2rem 0;
+
         }
-    
-       
+
+        &.on + label,
+        &.off + label {
+            opacity: 1;
+        }
+
         & ~ b {
             order: 2;
             display: flex;
@@ -100,7 +106,7 @@
                 opacity: 1;
             }
 
-            & ~ b {
+            &:not(.off) ~ b {
 
                 &:before {
                     background-color: getColor('blue');
