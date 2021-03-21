@@ -1,12 +1,9 @@
-
 /*
  * Main
  * ========================================================================== */
 /**
  * Add the main styles.
  */
-:root {
-}
 
 html {
     font-size: 10px;
@@ -91,5 +88,23 @@ main {
 }
 
 footer {
-    
+    // 
+}
+
+.icon-help {
+    --size: 2.2rem;
+
+    &::after {
+        content: '?';
+        border: solid calc(var(--size) / 11) getColor('black');
+        border-radius: calc(var(--size) / 2);
+        color: getColor('black');
+        display: block;
+        height: var(--size);
+        width: var(--size);
+        font-size: calc(var(--size) / 1.5);
+        font-weight: 500;
+        line-height: calc(var(--size) - var(--size) / 5.5);
+        text-align: center;
+    }
 }

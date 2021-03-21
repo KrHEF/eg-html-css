@@ -3,15 +3,18 @@
  * ========================================================================== */
 
  /**
- * Checkbox and radio.
+ * Base styles for the checkbox, radio, switch, toggle and toggle-switch.
  */
 
-
 .checkbox,
-.radio {
+.radio,
+.switch,
+.toggle-switch, 
+.toggle {
     --gap: 1.2rem;
-    --height: 2.8rem;
-    --width: 2.8rem;
+    --size: 2.8rem;
+    --height: var(--size);
+    --width: var(--size);
 
     color: getColor('gray4');
     display: inline-flex;
@@ -22,8 +25,7 @@
     & > input {
         display: none;
 
-        & ~ :not(label),
-        & ~ :not(b) {
+        & ~ * {
             margin: 0;
             padding: 2px 0;
             text-align: right;
@@ -36,25 +38,10 @@
             min-height: var(--height);
             min-width: var(--width);
             margin: 0;
-            padding: 2px calc(var(--width) + var(--gap)) 2px 2px;
-            position: relative;
+            padding: 2px 0;
 
             & ~ * {
                 text-align: left;
-            }
-
-            &:empty {
-                padding: 0;
-                margin: 0 0 0 var(--gap);
-            }
-        }
-
-        & ~ b + label {
-            padding: 2px 2px 2px calc(var(--width) + var(--gap));
-
-            &:empty {
-                padding: 0;
-                margin: 0 var(--gap) 0 0;
             }
         }
 
@@ -63,20 +50,12 @@
             height: var(--height);
             width: var(--width);
             pointer-events: none;
-            position: absolute;
-            left: 0;
-            top: 0;
 
             &::before {
                 content: '';
                 display: block;
                 position: absolute;
             }
-        }
-
-        & ~ label + b {
-            left: auto;
-            right: 0;
         }
 
         &:disabled {
@@ -109,5 +88,103 @@
                 color: getColor('gray2') !important;
             }
         }
+    }    
+}
+
+.checkbox,
+.radio,
+.switch {
+
+    & > input {
+
+        & ~ label {
+            padding: 2px calc(var(--width) + var(--gap)) 2px 0;
+
+            &:empty {
+                padding: 0;
+                margin: 0 0 0 var(--gap);
+            }
+        }
+
+        & ~ b + label {
+            padding: 2px 0 2px calc(var(--width) + var(--gap));
+
+            &:empty {
+                padding: 0;
+                margin: 0 var(--gap) 0 0;
+            }
+        }
+
+        & ~ b {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        & ~ label + b {
+            left: auto;
+            right: 0;
+        }
     }
- }
+}
+
+.switch,
+.toggle-switch, 
+.toggle {
+    --width: 5.2rem;
+
+    & > input {
+
+
+        & ~ label {
+            color: getColor('gray3');
+        }
+
+        &.on + label,
+        &.off + label,
+        & ~ label .off,
+        & ~ label .on {
+            color: getColor('gray4');
+        }
+
+        & ~ b {
+            background-color: getColor('white');
+            border: solid 1px getColor('gray2');
+            border-radius: calc(var(--height) / 2);
+
+            &::before {
+                background-color: getColor('gray2');
+                border-radius: 50%;
+                height: calc(var(--height) - 4px);
+                width: calc(var(--height) - 4px);
+                transition: left 0.5s ease, right 0.5s ease;
+                top: 1px;
+                left: 1px;
+            }
+        }
+
+        &:disabled {
+            @extend %disabled;
+        }
+    }
+
+    &.disabled {
+
+        & > input {
+            @extend %disabled;
+        }
+    }
+
+    %disabled {
+
+        & ~ b {
+            background-color: getColor('gray2') !important;
+            border-color: getColor('gray2') !important;
+
+            &::before {
+                background-color: getColor('gray3');
+                opacity: 0.25;
+            }
+        }
+    }
+}

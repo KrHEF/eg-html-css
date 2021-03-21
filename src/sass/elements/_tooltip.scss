@@ -1,0 +1,32 @@
+/**
+ * Add the tooltip.
+ */
+
+.tooltip {
+    position: relative;
+
+    & > & {
+        background-color: getColor('black');
+        border-radius: 1rem;
+        color: getColor('gray2');
+        display: none;
+        padding: 1rem 2rem;
+        position: absolute;
+
+        &::before {
+            content: '';
+            background-color: getColor('black');
+            display: block;
+            height: 0.8rem;
+            width: 0.8rem;
+            transform: rotate(45deg);
+            position: absolute;
+            bottom: -0.4rem;
+            left: calc(50% - 0.4rem);
+        }
+    }
+
+    &:hover > & {
+        display: block;
+    }
+}

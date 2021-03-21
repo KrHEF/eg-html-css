@@ -4,116 +4,70 @@
 
 .toggle-switch,
 .toggle {
-    display: flex;
-    align-items: flex-start;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    position: relative;
 
-    & > input[type="radio"] {
-        display: none;
+    & > input {
 
-        & + label {
-            cursor: pointer;
-            opacity: 0.5;
-            line-height: 2.4rem;
-            margin: 0;
-            padding: 0.2rem 0;
-
-        }
-
-        &.on + label,
-        &.off + label {
-            opacity: 1;
+        & ~ label {
+            min-width: calc(var(--width) / 2);  
         }
 
         & ~ b {
-            order: 2;
-            display: flex;
-            align-items: flex-start;
-            flex-flow: row nowrap;
-            justify-content: flex-start;
-            line-height: 2.4rem;
-            margin: 0;
-            width: 5.2rem;
-            margin: 0 -2.6rem;
+            margin: 0 calc(var(--width) / 2 - var(--width));
+            order: 3;
             padding: 0;
             position: relative;
-            pointer-events: none;
     
-            &:before {
-                content: '';
-                background-color: getColor('white');
-                border: solid 1px getColor('gray2');
-                border-radius: 1.5rem;
-                display: block;
-                height: 2.8rem;
-                width: 5.2rem;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-    
-            &:after {
-                content: '';
-                background-color: getColor('gray2');
-                border-radius: 1.3rem;
-                display: block;
-                height: 2.4rem;
-                width: 2.4rem;
-                transition: left 0.5s ease, right 0.5s ease;
-                position: absolute;
-                top: 0.2rem;
-                left: calc(50% - 1.2rem);
+            &::before {
+                left: calc(50% - (var(--height) - 4px) / 2);
             }
         }
 
         &.left {
     
             & + label {
-                order: 1;
-                padding-right: 4rem;
+                order: 2;
+                padding-right: calc(var(--width) / 2 + var(--gap)); 
+
+                &:empty {
+                    margin-left: var(--gap);
+                    padding: 0;
+                }
             }
 
-            &:checked ~ b {
-
-                &:after {
-                    left: 0.2rem;
-                }
+            &:checked ~ b::before {
+                left: 1px;
             }
         }
     
         &.right {
     
             & + label {
-                order: 3;
-                padding-left: 4rem;
-            }
+                order: 4;
+                padding-left: calc(var(--width) / 2 + var(--gap));
 
-            &:checked ~ b {
-
-                &:after {
-                    left: 2.6rem;
-                    // right: 0.2rem;
+                &:empty {
+                    margin-right: var(--gap);
+                    padding: 0;    
                 }
             }
-        }
+
+            &:checked ~ b::before {
+                left: 50%;
+            }
+    }
 
         &.left:checked, 
         &.right:checked {
 
             & + label {
-                opacity: 1;
+                color: inherit;
             }
 
             &:not(.off) ~ b {
-
-                &:before {
-                    background-color: getColor('blue');
-                    border: none;
-                }
+                background-color: getColor('blue');
+                border-color: getColor('blue');
         
-                &:after {
+                &::before {
                     background-color: getColor('white');
                 }
             }
@@ -123,60 +77,17 @@
         &.left:checked ~ .right:checked {
 
             & ~ b {
-
-                &:before {
-                    background-color: getColor('white');
-                    border: solid 1px getColor('error');
-                }
+                background-color: getColor('white');
+                border: solid 1px getColor('error');
         
-                &:after {
+                &::before {
                     content: 'error';
                     background: none;
                     color: getColor('error');
-                    left: 0.2rem;
-                    right: 0.2rem;
+                    left: 1px;
+                    right: 1px;
                     text-align: center;
                     width: auto;
-                }
-            }
-    
-        }
-
-    }
-
-    &.disabled {
-
-        &::after {
-            content: '';
-            cursor: not-allowed;
-            background-color: getColor('white');
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: 0;
-            opacity: 0;
-        }
-
-        & > input[type="radio"] {
-    
-            & + label {
-                color: getColor('gray2') !important;
-            }
-        
-           
-            & ~ b {
-        
-                &:before {
-                    content: '';
-                    background-color: getColor('gray2') !important;
-                    border: none !important;
-                }
-        
-                &:after {
-                    background-color: getColor('gray3') !important;
-                    opacity: 0.25;
                 }
             }
         }

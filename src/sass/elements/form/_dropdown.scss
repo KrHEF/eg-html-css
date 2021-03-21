@@ -1,0 +1,65 @@
+/**
+ * Add the select.
+ */
+.dropdown {
+    --height: 5.6rem;
+    --width: 35rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    position: relative;
+
+    select {
+        background-color: getColor('white');
+        border: solid 1px getColor('gray3');
+        border-radius: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        color: getColor('gray4');
+        font-size: 2rem;
+        line-height: 1.3;
+        height: var(--height);
+        width: var(--width);
+        padding: 0 6rem 0 2.4rem;
+        transition: all 0.2s ease;
+        vertical-align: baseline;
+
+        & ~ .icon {
+            display: none;
+            font-weight: 500;
+            padding: 0 2rem;
+            position: absolute;
+            left: 0;
+        }
+    
+        & ~ .arrow {
+            background-color: getColor('white');
+            border-radius: 1rem;
+            display: block;
+            height: calc(var(--height) - 2px);
+            // width: ;
+            padding: 2rem;
+            pointer-events: none;
+            position: absolute;
+            right: 1px;
+
+            &::after {
+                content: '';
+                border-bottom: solid 2px getColor('blue');
+                border-right: solid 2px getColor('blue');
+                display: block;
+                height: calc(var(--height) / 5);
+                width: calc(var(--height) / 5);
+                transform: rotate(45deg);
+            }
+        }
+
+        &:disabled {
+
+            & ~ .arrow::after {
+                border-color: getColor('gray2');
+            } 
+        }
+    }
+}

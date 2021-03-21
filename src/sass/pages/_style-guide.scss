@@ -102,6 +102,13 @@
 
     &--forms &__grid-element {
         min-width: 25%;
+
+        &--tooltip {
+ 
+            .tooltip {
+                display: block;
+            }
+        }
     }
 
     &__grid {
