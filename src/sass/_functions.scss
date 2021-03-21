@@ -1,5 +1,5 @@
 /*
- * Color box
+ * Functions.
  * ========================================================================== */
 /**
  * Colors.
@@ -30,12 +30,13 @@
 @mixin addBackgroundImageIcon($icon) {
 
     &--#{$icon} {
-        @include getBackgroundImageStyle($iconFolder + $icon + '.svg');
+        @include getBackgroundImageStyle($icon);
     }
 }
 
-@mixin getBackgroundImageStyle($url) {
-    background: url($url) no-repeat;
+@mixin getBackgroundImageStyle($icon) {
+    $url: $iconFolder + $icon + '.svg';
+    background: url($url) no-repeat 50% 50%;
 }
 
 @mixin addMaskImageIcon($icon) {
@@ -47,8 +48,6 @@
 
 @mixin getMaskImageStyle($icon) {
     $url: $iconFolder + $icon + '.svg';
-    -webkit-mask-image: url($url);
-    mask-image: url($url);
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+    -webkit-mask: url($url) no-repeat 50% 50%;
+    mask-image: url($url) no-repeat 50% 50%;
 }

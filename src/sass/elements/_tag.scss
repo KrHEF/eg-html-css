@@ -22,32 +22,24 @@
     padding: 0 1.6rem;
 
 
-    &--page,
-    &--pink,
-    &--color1 {
+    &--page {
         background-color: getColor('pink');
         color: getColor('black');
     }
 
     &--favorite,
-    &--fav,
-    &--purple,
-    &--color2 {
+    &--fav {
         background-color: getColor('purple');
         color: getColor('white');
     }
 
     &--category,
-    &--cat,
-    &--black,
-    &--color3 {
+    &--cat {
         background-color: getColor('black');
         color: getColor('white');
     }
 
-    &--share,
-    &--white,
-    &--color3 {
+    &--share {
         background-color: getColor('white');
         border-color: getColor('gray2');
         color: getColor('blue');

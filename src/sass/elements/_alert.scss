@@ -1,0 +1,68 @@
+/*
+ * Alerts
+ * ========================================================================== */
+
+ .alert {
+    --height: 4.8rem;
+    --width: 100%;
+
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    line-height: 2.4rem;
+    min-height: var(--height);
+    width: var(--width);
+    padding: 1.2rem 1.2rem 1.2rem 2.4rem;
+
+    &::before {
+        content: '';
+        display: block;
+        flex: 0 0 2.4rem;
+        height: 2.4rem;
+        width: 2.4rem;
+        margin-right: 1.6rem;
+    }
+
+    &--error {
+        background-color: rgba(getColor('error'), 0.1);
+        color: getColor('error');
+
+        &::before {
+            @include getBackgroundImageStyle('alert-triangle');
+        }
+    }
+
+    &--success {
+        background-color: rgba(getColor('blue'), 0.1);
+        color: getColor('blue');
+
+        &::before {
+            @include getBackgroundImageStyle('check-circle');
+        }
+    }
+
+    &--notification {
+        background-color: rgba(getColor('notification'), 0.1);
+        color: getColor('notification');
+
+        &::before {
+            @include getBackgroundImageStyle('bell');
+        }
+    }
+
+    .title {
+        margin-right: 0.8rem;
+    }
+
+    .text {
+        flex: 1 1 auto;
+    }
+
+    .close {
+        height: 2.4rem;
+        padding: 0 1.8rem;
+        width: 4.8rem;
+        @include getBackgroundImageStyle('x');
+    }
+ }
