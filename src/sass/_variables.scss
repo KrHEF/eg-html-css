@@ -1,3 +1,10 @@
+/*
+ * Color box
+ * ========================================================================== */
+/**
+ * Colors.
+ */
+
 $colors: (
     'white': #FFFFFF,
     'black': #212429,
@@ -14,4 +21,42 @@ $colors: (
     'error': #F03D3E,
     'success': #374FC7,
     'notification': #D84910,
+);
+
+/**
+ * Icons.
+ */
+
+$iconFolder: '/icons/';
+$icons: (
+    'home',
+    'help-circle',
+    'check-circle',
+    'alert-triangle',
+    'star',
+    'shopping-cart',
+    'map-pin',
+    'calendar',
+    'edit',
+    'image',
+    'bell',
+    'upload-cloud',
+    'download',
+    'bar-chart-2',
+    'inbox',
+    'filter',
+    'map',
+    'zap',
+    'share-2',
+    'message-circle',
+    'credit-card',
+    'search',
+    'user',
+    'users',
+    'sun',
+    'moon',
+    'x',
+    'chevron-down',
+    'menu',
+    'check',
 );

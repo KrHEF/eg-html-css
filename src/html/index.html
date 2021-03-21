@@ -139,28 +139,35 @@
                                 <h5>Label</h5>
                                 <div class="textput">
                                     <input type="text" name="label1" placeholder="Placeholder" />
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                             <div class="style-guide-block__grid-element">
                                 <h5>Focus</h5>
                                 <div class="textput">
                                     <input type="text" name="label1" class="focus" placeholder="Placeholder" value="Text" />
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                             <div class="style-guide-block__grid-element">
                                 <h5>Success</h5>
                                 <div class="textput">
                                     <input type="text" name="label1" class="success" placeholder="Placeholder" value="Success" />
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                             <div class="style-guide-block__grid-element">
                                 <h5>Error</h5>
                                 <div class="textput">
                                     <input type="text" name="label1" class="error" placeholder="Placeholder" value="Error" />
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
+                                </div>
+                            </div>
+                            <div class="style-guide-block__grid-element">
+                                <h5>Error</h5>
+                                <div class="textput">
+                                    <input type="text" name="label1" placeholder="Placeholder" value="Disabled" disabled />
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +181,7 @@
                                         <option value="1">Value 1</option>
                                     </select>
                                     <span class="arrow"></span>
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                             <div class="style-guide-block__grid-element">
@@ -186,7 +193,7 @@
                                         <option value="1">Value 1</option>
                                     </select>
                                     <span class="arrow"></span>
-                                    <span class="icon"></span>
+                                    <span class="helper"></span>
                                 </div>
                             </div>
                         </div>
@@ -674,20 +681,27 @@
                                 <div class="style-guide-block__line">
                                     <h5>Tags</h5>
                                 </div>
-                                <div class="style-guide-block__line">
+                                <div class="style-guide-block__line tags">
+                                    <span class="tag tag--page">1 OF 12</span>
+                                    <span class="tag tag--fav">Favorite</span>
+                                    <span class="tag tag--cat">Category</span>
+                                    <span class="tag tag--share">
+                                        <i class="icon icon-mask icon-mask--share-2"></i>
+                                        Shared
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="style-guide-block">
+                <div class="style-guide-block style-guide-block--alerts">
                     <div class="style-guide-block__head">
                         <h2>Alerts</h2>
                     </div>
                     <div class="style-guide-block__body">
                     </div>
                 </div>
-                <div class="style-guide-block">
+                <div class="style-guide-block style-guide-block--icons">
                     <div class="style-guide-block__head">
                         <h2>Icons</h2>
                         <p>Feather icons at 24px height and width with 2px stroke weight</p>
@@ -696,17 +710,297 @@
                         </small>
                     </div>
                     <div class="style-guide-block__body">
-                    </div>
-                </div>
-                <div class="style-guide-block">
-                    <div class="style-guide-block__head">
-                        <h2>Icons</h2>
-                        <p>Feather icons at 24px height and width with 2px stroke weight</p>
-                        <small>
-                            <a href="https://feathericons.com/" target="_blank">https://feathericons.com/</a>
-                        </small>
-                    </div>
-                    <div class="style-guide-block__body">
+                        <div class="style-guide-block__section">                        
+                            <div class="style-guide-block__line">
+                                <h5>SVG</h5>
+                            </div>
+                            <div class="style-guide-block__grid style-guide-block__grid--more">
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#home"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#help-circle"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#check-circle"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#alert-triangle"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#star"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#shopping-cart"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#map-pin"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#calendar"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#edit"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#image"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#bell"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#upload-cloud"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#download"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#bar-chart-2"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#inbox"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#filter"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#map"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#zap"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#share-2"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#message-circle"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#credit-card"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#search"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#user"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#users"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#sun"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#moon"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#x"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#chevron-down"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#menu"/></svg>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <svg class="icon"><use xlink:href="/icons/sprite.svg#check"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="style-guide-block__section">                        
+                            <div class="style-guide-block__line">
+                                <h5>CSS: background</h5>
+                            </div>
+                            <div class="style-guide-block__grid style-guide-block__grid--more">
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--home"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--help-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--check-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--alert-triangle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--star"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--shopping-cart"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--map-pin"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--calendar"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--edit"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--image"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--bell"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--upload-cloud"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--download"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--bar-chart-2"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--inbox"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--filter"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--map"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--zap"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--share-2"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--message-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--credit-card"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--search"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--user"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--users"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--sun"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--moon"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--x"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--chevron-down"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--menu"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon--check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="style-guide-block__section">                        
+                            <div class="style-guide-block__line">
+                                <h5>CSS: mask-image</h5>
+                            </div>
+                            <div class="style-guide-block__grid style-guide-block__grid--more">
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--home"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--help-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--check-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--alert-triangle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--star"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--shopping-cart"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--map-pin"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--calendar"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--edit"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--image"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--bell"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--upload-cloud"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--download"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--bar-chart-2"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--inbox"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--filter"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--map"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--zap"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--share-2"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--message-circle"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--credit-card"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--search"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--user"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--users"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--sun"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--moon"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--x"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--chevron-down"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--menu"></i>
+                                </div>
+                                <div class="style-guide-block__grid-element">
+                                    <i class="icon icon-mask icon-mask--check"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="style-guide-block">

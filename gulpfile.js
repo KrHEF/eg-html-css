@@ -1,4 +1,5 @@
 const {dest, task, series, src, parallel, watch} = require('gulp'),
+    rename = require('gulp-rename'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
     fileInclude = require('gulp-file-include'),
@@ -21,6 +22,15 @@ task('html', () => {
         .pipe(connect.reload());
 });
 
+task('icons', () => {
+    return src('./node_modules/feather-icons/dist/feather-sprite.svg')
+        .pipe(rename('sprite.svg'))
+        .pipe(dest('./dist/icons'))
+        .pipe(src('./node_modules/feather-icons/dist/icons/*.svg'))
+        .pipe(dest('./dist/icons'))
+        .pipe(connect.reload());
+});
+
 task('server', (cb) => {
     connect.server({
         root: 'dist',
@@ -36,4 +46,4 @@ task('watch', (cb) => {
     cb();
 });
 
-task('default', series(parallel('sass', 'html'), 'watch', 'server'));
+task('default', series(parallel('sass', 'html', 'icons'), 'watch', 'server'));

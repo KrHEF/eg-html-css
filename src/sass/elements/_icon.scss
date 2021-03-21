@@ -1,0 +1,26 @@
+/**
+ * Add the icons.
+ */
+
+.icon {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+
+    @include addBackgroundImageIcons();
+}
+
+.icon-mask {
+    background-color: getColor('black');
+
+    @include addMaskImageIcons();
+} 
+
+svg.icon {
+    color: getColor('black');
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}

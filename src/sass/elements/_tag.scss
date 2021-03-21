@@ -1,0 +1,63 @@
+/**
+ * Add the tags.
+ */
+
+.tags {
+
+    .tag + .tag{
+        margin-left: 0.8rem;
+    }
+}
+
+.tag {
+    @extend %h5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: flex-start;
+    border: solid 1px transparent;
+    border-radius: 1.6rem;
+    height: 3.2rem;
+    line-height: 3rem;
+    padding: 0 1.6rem;
+
+
+    &--page,
+    &--pink,
+    &--color1 {
+        background-color: getColor('pink');
+        color: getColor('black');
+    }
+
+    &--favorite,
+    &--fav,
+    &--purple,
+    &--color2 {
+        background-color: getColor('purple');
+        color: getColor('white');
+    }
+
+    &--category,
+    &--cat,
+    &--black,
+    &--color3 {
+        background-color: getColor('black');
+        color: getColor('white');
+    }
+
+    &--share,
+    &--white,
+    &--color3 {
+        background-color: getColor('white');
+        border-color: getColor('gray2');
+        color: getColor('blue');
+    }
+
+    .icon {
+        height: 2rem;
+        width: 2rem;
+        -webkit-mask-size: 2rem;
+        mask-size: 2rem;
+        margin-right: 0.8rem;
+    }
+}

@@ -1,3 +1,54 @@
+/*
+ * Color box
+ * ========================================================================== */
+/**
+ * Colors.
+ */
+
 @function getColor($name) {
     @return map-get($map: $colors, $key: $name);
+}
+
+/**
+ * Icons.
+ */
+
+@mixin addBackgroundImageIcons() {
+
+    @each $icon in $icons {
+        @include addBackgroundImageIcon($icon);
+    }
+}
+
+@mixin addMaskImageIcons() {
+
+    @each $icon in $icons {
+        @include addMaskImageIcon($icon);
+    }
+}
+
+@mixin addBackgroundImageIcon($icon) {
+
+    &--#{$icon} {
+        @include getBackgroundImageStyle($iconFolder + $icon + '.svg');
+    }
+}
+
+@mixin getBackgroundImageStyle($url) {
+    background: url($url) no-repeat;
+}
+
+@mixin addMaskImageIcon($icon) {
+
+    &--#{$icon} {
+        @include getMaskImageStyle($icon);
+    }
+}
+
+@mixin getMaskImageStyle($icon) {
+    $url: $iconFolder + $icon + '.svg';
+    -webkit-mask-image: url($url);
+    mask-image: url($url);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 }

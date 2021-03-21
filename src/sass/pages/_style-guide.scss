@@ -60,6 +60,13 @@
         }
     }
 
+    &__body {
+
+        h5 {
+            color: getColor('gray3');
+        }
+    }
+
     &__line {
         display: flex;
         flex-flow: row nowrap;
@@ -74,7 +81,6 @@
     &--buttons &__line {
     
        & > h5 {
-            color: getColor('gray3');
             flex-basis: 9.5rem;
         }
     }
@@ -91,7 +97,6 @@
         gap: 4rem;
      
         h5 {
-            color: getColor('gray3');
             margin-bottom: 0.5rem;
         }
     }
@@ -108,6 +113,24 @@
             .tooltip {
                 display: block;
             }
+        }
+    }
+
+
+    &--icons &__body h5 {
+        margin-bottom: 1.6rem;
+    }
+
+    &--icons {
+
+        .icon {
+            color: getColor('blue');
+            height: 2.4rem;
+            width: 2.4rem;
+        }
+
+        .icon-mask {
+            background-color: getColor('error');
         }
     }
 

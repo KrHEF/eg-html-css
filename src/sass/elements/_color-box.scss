@@ -4,7 +4,8 @@
 /**
  * Add the color box.
  */
-@mixin setColor($color) {
+
+ @mixin setColor($color) {
     &::before {
         background-color: getColor($color);
     }

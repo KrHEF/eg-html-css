@@ -1,6 +1,76 @@
 /*
  * Base styles for form elements
  * ========================================================================== */
+ /**
+ * Base styles for the textput and dropdown.
+ */
+
+.textput,
+.dropdown {
+    --height: 5.6rem;
+    --width: 35rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    position: relative;
+
+    input[type="text"],
+    select {
+        background-color: getColor('white');
+        border: solid 1px getColor('gray3');
+        border-radius: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        color: getColor('gray4');
+        font-size: 2rem;
+        line-height: 1.3;
+        height: var(--height);
+        width: var(--width);
+        padding: 0 2.4rem;
+        position: relative;
+        transition: all 0.2s ease;
+        vertical-align: baseline;
+
+        &::placeholder {
+            color: getColor('gray2');
+        }
+    
+        & ~ .helper {
+            background-color: getColor('white');
+            border-radius: 1rem;
+            display: none;
+            align-items: center;
+            height: calc(var(--height) - 2px);
+            padding: 0 2rem;
+            position: absolute;
+            right: 1px;
+            z-index: 10;
+    
+            &::after {
+                content: '';
+                display: block;
+                height: 2.4rem;
+                width: 2.4rem;
+            }
+        }
+    
+        &:disabled {
+            color: getColor('gray2');
+            border-color: getColor('gray2');
+    
+            & ~ .helper {
+                display: flex;
+    
+                &::after {
+                    background-color: getColor('gray2');
+                    @include getMaskImageStyle('lock');
+                }
+            }
+        }
+    }
+}
+
 
  /**
  * Base styles for the checkbox, radio, switch, toggle and toggle-switch.
@@ -188,3 +258,4 @@
         }
     }
 }
+    
