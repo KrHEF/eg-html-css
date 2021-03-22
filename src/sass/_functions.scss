@@ -51,3 +51,11 @@
     -webkit-mask: url($url) no-repeat 50% 50%;
     mask-image: url($url) no-repeat 50% 50%;
 }
+
+@mixin addCalendarDays() {
+    @for $day from 1 through 31 {
+        &__#{$day} + label::before {
+            content: '' + $day;
+        }
+    }
+}

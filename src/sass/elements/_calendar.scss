@@ -1,0 +1,144 @@
+/*
+ * Calendar.
+ * ========================================================================== */
+
+.calendar {
+    --firstDay: 0;
+    --width: 30.4rem;
+
+    border: solid 1px getColor('gray3');
+    border-radius: 0.8rem;
+    padding: 2.4rem 2.4rem 3.2rem;
+    width: var(--width);
+     
+    &__week {
+         margin: 2.4rem 0 1.6rem;
+    }
+
+    &--start {
+        &_mon { --firstDay: 8; }
+        &_tue { --firstDay: 2; }
+        &_wed { --firstDay: 3; }
+        &_thu { --firstDay: 4; }
+        &_fri { --firstDay: 5; }
+        &_sat { --firstDay: 6; }
+        &_sun { --firstDay: 7; }
+    }
+
+    &--month {
+
+        &_feb .calendar-days__29 + label,
+        &_feb .calendar-days__30 + label,
+        &_feb .calendar-days__31 + label,
+        &_apr .calendar-days__31 + label,
+        &_jun .calendar-days__31 + label,
+        &_sep .calendar-days__31 + label,
+        &_nov .calendar-days__31 + label {
+            display: none !important;
+        }
+
+        &_feb.calendar--year_leap .end.calendar-days__29 + label {
+            display: flex !important;
+        }
+        }
+}
+
+.calendar-month {
+    color: getColor('calendar-month');
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.calendar-week {
+    color: getColor('calendar-week');
+    font-size: 1.4rem;
+    line-height: 1.43;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.calendar-days {
+    color: getColor('calendar-day');
+    font-size: 1.4rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    &__separator {
+        grid-column-start: 1;
+        grid-column-end: var(--firstDay);
+    }
+
+    input[type="radio"] {
+        display: none;
+
+        &.end + label {
+            display: none;
+        }
+
+        &:checked + label {
+            color: getColor('white') !important;
+            background-color: getColor('blue') !important;
+        }
+
+        &.start:checked + label ~ .start + label {
+            display: none;
+        }
+
+        // &.end:checked + label ~ .start + label {
+        //     display: flex !important;
+        // }
+
+        // &.end:checked + label ~ .end + label {
+        //     display: none !important;
+        // }
+
+        &.start:checked + label + .end ~ .end + label {
+            display: flex;
+        }
+
+        &.start:checked + label ~ label {
+            background-color: getColor('calendar-day-interval');
+        }
+
+        &.start:checked + label ~ label:hover {
+            background-color: getColor('blue');
+            color: getColor('white');
+        }
+
+        &.start:checked ~ label:hover ~ label {
+            background-color: transparent;
+        }
+
+        &.start:checked + label ~ .end:checked + label {
+            color: getColor('white');
+            background-color: getColor('blue');
+        }
+
+        &.start:checked + label ~ .end:checked + label ~ label {
+            background-color: transparent;
+        }
+    }
+
+    & > label {
+        background-color: getColor('white');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3.6rem;
+        width: 100%;
+
+        &:hover {
+            color: getColor('white') !important;
+            background-color: getColor('blue') !important;
+
+            & ~ .end + label {
+                background-color: transparent;
+            }
+        }
+    }
+
+    @include addCalendarDays();
+}
