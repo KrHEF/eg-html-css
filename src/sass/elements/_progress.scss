@@ -1,0 +1,113 @@
+/*
+ * Progress.
+ * ========================================================================== */
+
+.progress {
+
+    @keyframes progress-front {
+    
+        @for $step from 0 through 100 {
+            #{$step + '%'} { --step: calc(var(--value) * #{$step / 100}); }
+        }
+    }
+    
+    @keyframes progress-back {
+    
+        @for $step from 100 through 0 {
+            #{100 - $step + '%'} { --step: calc(var(--value) * #{$step / 100}); }
+        }
+    }
+    
+    --size: 10rem;
+    --step: var(--value);
+    --border-size: calc(var(--size) / 134 * 10);
+    --duration-full-circle: 1s;
+    --duration-front: calc(var(--duration-full-circle) / 100 * var(--value));
+    --duration-back: calc(0.5s / 100 * var(--value));
+    font-size: calc(var(--size) / 134 * 28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--size);
+    width: var(--size);
+    overflow: hidden;
+    position: relative;
+    animation: progress-front var(--duration-front) ease 0s forwards;
+
+    &::before {
+        content: '';
+        background: #fff;
+        display: block;
+        position: absolute;
+        left: 0;
+        height: 100% ;
+        width: 50%;
+        opacity: calc(50 - var(--step));
+        z-index: 6;
+    }
+
+    &:hover {
+        animation: progress-back var(--duration-back) ease 0s forwards;
+    }
+    
+    .panel {
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        z-index: 5;
+
+        &::before {
+            content: '';
+            display: block;
+            background-color: getColor('blue');
+            left: 0;
+            height: 100%;
+            top: 0;
+            width: 50%;
+            position: absolute;
+            transform-origin: 100% 50%;
+            transform: rotate(calc(var(--step) * 3.6deg));
+            z-index: 6;
+        }
+        
+        &::after {
+            content: '';
+            display: block;
+            background-color: getColor('blue');
+            right: 0;
+            height: 100%;
+            top: 0;
+            width: 50%;
+            position: absolute;
+            opacity: calc(var(--step) - 50);
+            z-index: 7;
+        }
+        
+    }
+
+
+    span {
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - var(--border-size) * 2);
+        width: calc(100% - var(--border-size) * 2);
+        position: absolute;
+        z-index: 11;
+        
+        &::before {
+            counter-reset: value var(--value);
+            content: counter(value);
+        }
+        
+        &::after {
+            content: '%';
+        }
+    }
+}

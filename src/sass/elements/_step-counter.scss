@@ -1,0 +1,78 @@
+/*
+ * Step counter.
+ * ========================================================================== */
+
+
+.step-counter {
+    --size: 4rem;
+    --gap: calc(var(--size) / 4 * 3.2);
+
+    color: getColor('gray1');
+    font-size: calc(var(--size) / 4 * 1.6);
+    display: inline-flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    counter-reset: step;
+    overflow: hidden;
+
+    &__item {
+        height: var(--size);
+        width: var(--size);
+        position: relative;
+
+        &::before {
+            content: '';
+            background-color: getColor('blue');
+            display: block;
+            height: 2px;
+            width: calc(var(--gap) + var(--size));
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 0;
+        }
+
+        &::after {
+            content: counter(step);
+            background-color: getColor('blue');
+            border-radius: 50%;
+            counter-increment: step;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 0;
+            left:0;
+            right: 0;
+            top: 0;
+            z-index: 99;
+        }
+
+        & + & {
+            margin-left: var(--gap);
+
+        }
+
+        &--current ~ & {
+
+            &::before,
+            &::after {
+                    background-color: getColor('gray3');
+            }
+        }
+    }
+
+    &--wide {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &--wide &__item::before {
+        width: 9999px;
+    }
+
+    &--wide &__item  + &__item{
+        margin-left: 2px;
+    }
+}
