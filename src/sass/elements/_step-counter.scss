@@ -54,6 +54,13 @@
 
         }
 
+        &--current {
+
+            &::before {
+                background-color: getColor('gray3');
+            }
+        }
+
         &--current ~ & {
 
             &::before,
