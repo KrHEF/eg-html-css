@@ -1,0 +1,75 @@
+/*
+ * Statistics.
+ * ========================================================================== */
+
+.statistics {
+    --factor: 1;
+    --height: calc(18.5rem * var(--factor));
+    --max-value: 100;
+    --value: 0;
+    --duration: 1s;
+    --delay: 1s;
+
+
+    border: solid 1px getColor('gray3');
+    border-radius: 0.8rem;
+    font-size: calc(var(--height) / 18.5  * 1.6);
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: calc(var(--height) / 18.5  * 2.4);
+    padding-top: calc(var(--height) / 18.5  * 1.6);
+    position: relative;
+
+    &__title {
+        color: rgba(getColor('black'), 0.8);
+    }
+
+    &__counter {
+        color: getColor('black');
+        font-size: calc(var(--height) / 18.5  * 2);
+        display: block;
+        margin-top: calc(var(--height) / 18.5  * 0.8);
+    }
+
+    &__panel {
+        flex: 1 1 100%;
+        height: calc(var(--height) / 18.5  * 5);
+        margin-top: calc(var(--height) / 18.5  * 4);
+    }
+}
+
+.statistics-panel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.statistics-indicator {
+ 
+    @keyframes to-height {
+        
+        from {
+            height: 0;
+        }
+
+        to {
+            height: calc(100% * var(--value) / var(--max-value));
+        }
+    }
+
+    --duration-front: calc(var(--duration) / 100 * var(--value));
+    background-color: getColor('blue');
+    border-radius: 2px 2px 0 0;
+    flex: auto;
+    height: 0;
+    width: 100%;
+    animation: to-height var(--duration-front) ease var(--delay) forwards;
+
+    & + & {
+        margin-left: 1px;
+    }
+}

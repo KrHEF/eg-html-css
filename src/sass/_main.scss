@@ -17,6 +17,16 @@ body {
     height: 100%;
 }
 
+a {
+    color: getColor('blue');
+    text-decoration: underline;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .h1,
 h1 {
     font-size: 5rem;
