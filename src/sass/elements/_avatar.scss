@@ -1,0 +1,19 @@
+/*
+ * Avatar.
+ * ========================================================================== */
+
+.avatar {
+    --size: 10rem;
+    border-radius: 50%;
+    height: var(--size);
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    width: var(--size);
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}

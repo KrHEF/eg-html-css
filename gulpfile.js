@@ -31,6 +31,12 @@ task('icons', () => {
         .pipe(connect.reload());
 });
 
+task('images', () => {
+    return src('./src/assets/images/*')
+        .pipe(dest('./dist/images'))
+        .pipe(connect.reload());
+});
+
 task('server', (cb) => {
     connect.server({
         root: 'dist',
@@ -46,4 +52,4 @@ task('watch', (cb) => {
     cb();
 });
 
-task('default', series(parallel('sass', 'html', 'icons'), 'watch', 'server'));
+task('default', series(parallel('sass', 'html', 'icons', 'images'), 'watch', 'server'));
